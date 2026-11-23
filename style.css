@@ -268,6 +268,137 @@ a:hover { color: var(--pink-soft); }
 .equation small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 8px; }
 .equation s { color: var(--brown); text-decoration-color: var(--pink); text-decoration-thickness: 2px; }
 
+/* ---------- technical article components ---------- */
+.article p.plain:first-of-type::first-letter {
+  font-family: inherit;
+  font-weight: inherit;
+  float: none;
+  font-size: inherit;
+  line-height: inherit;
+  padding: 0;
+  color: inherit;
+}
+.article h3 {
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--brown);
+  margin: 0 0 10px;
+}
+.abstract,
+.callout {
+  border: 1px solid var(--brown-deep);
+  border-left: 4px solid var(--pink);
+  background: var(--panel);
+  padding: 20px 24px;
+  margin: 0 0 32px;
+  font-size: 16px;
+}
+.abstract p,
+.callout p { margin: 0; }
+.callout { border-left-color: var(--brown); margin-top: 20px; }
+.callout p { margin-bottom: 12px; }
+.callout ul { margin: 0; padding-left: 20px; }
+.callout li { margin-bottom: 8px; }
+
+.toc {
+  margin: 0 0 12px;
+  font-size: 16px;
+}
+.toc ol {
+  margin: 0;
+  padding-left: 22px;
+  columns: 2;
+  column-gap: 32px;
+}
+.toc li { padding: 2px 0; }
+
+.equation.tech {
+  font-size: 1.3rem;
+  overflow-x: auto;
+}
+
+.fig { margin: 36px 0; }
+.fig-scroll {
+  overflow-x: auto;
+  border: 1px solid var(--brown-deep);
+  background: var(--panel);
+  padding: 12px;
+}
+.fig svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 560px;
+}
+.fig svg text {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  fill: var(--text);
+}
+.fig svg text.lg { font-size: 11px; }
+.fig svg text.m { fill: var(--muted); }
+.fig svg text.p { fill: var(--pink-soft); }
+.fig svg text.b { fill: var(--brown); }
+.fig figcaption {
+  font-size: 15px;
+  color: var(--muted);
+  margin-top: 10px;
+  line-height: 1.55;
+}
+.fig figcaption b { color: var(--pink-soft); font-weight: 600; }
+
+.table-wrap { overflow-x: auto; margin: 30px 0; }
+.article table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+.article caption {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-bottom: 10px;
+}
+.article th {
+  text-align: left;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--pink);
+  border-top: 2px solid var(--pink);
+  border-bottom: 1px solid var(--brown);
+  padding: 8px 12px;
+}
+.article td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--brown-deep);
+  vertical-align: top;
+}
+.article ul,
+.article ol { margin: 0 0 1.3em; padding-left: 24px; }
+.article li { margin-bottom: 8px; }
+
+.refs { list-style: none; padding-left: 0; font-size: 16px; }
+.ref-tag {
+  display: inline-block;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 1px 7px;
+  margin-right: 8px;
+  border: 1px solid var(--brown);
+  color: var(--brown);
+}
+.ref-tag.real { border-color: var(--pink); color: var(--pink); }
+.thanks { margin-top: 36px; color: var(--muted); }
+
 /* ---------- footer ---------- */
 footer {
   border-top: 2px solid var(--pink);
@@ -288,5 +419,6 @@ footer a:hover { color: var(--pink); }
   .layout { grid-template-columns: 1fr; gap: 24px; }
   .masthead { padding: 44px 0 30px; }
   .featured { padding: 24px 20px; }
+  .toc ol { columns: 1; }
   body { font-size: 17px; }
 }
