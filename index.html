@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dr G.Poonis - To Kill a Mocking Berg</title>
+  <meta name="description" content="Proving the Schrödinger equation wrong. A journal of news and personal articles by Dr G.Poonis.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;0,900;1,400&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="wrap">
+      <nav>
+        <a href="index.html" class="active">Journal</a>
+        <a href="#posts" data-jump="news">News</a>
+        <a href="#posts" data-jump="personal">Personal</a>
+        <a href="#about">About</a>
+      </nav>
+      <span class="date" id="today"></span>
+    </div>
+  </div>
+
+  <header class="masthead wrap">
+    <h1><span class="author">Dr G.Poonis</span> <span class="dash">-</span> To Kill a Mocking Berg</h1>
+    <p class="subtitle">Proving the Schrödinger equation wrong</p>
+  </header>
+  <hr class="rule">
+
+  <main class="wrap layout">
+    <section>
+
+      <p class="section-label">Latest entry</p>
+      <article class="featured">
+        <div class="meta"><span class="tag news">News</span>23 Nov 2026 &middot; 6 min read</div>
+        <h2><a href="post-1.html">The Cat Was Never in the Box</a></h2>
+        <p>An opening dispatch from the lab: why I think the most famous thought experiment in physics has been asking the wrong question for ninety years, and what I plan to do about it.</p>
+        <a class="readmore" href="post-1.html">Read the entry &rarr;</a>
+      </article>
+
+      <p class="section-label" id="posts">The journal</p>
+      <div class="filters" role="group" aria-label="Filter posts">
+        <button class="on" data-filter="all">All</button>
+        <button data-filter="news">News</button>
+        <button data-filter="personal">Personal</button>
+      </div>
+
+      <div id="postlist">
+        <article class="post" data-cat="personal">
+          <div class="meta"><span class="tag">Personal</span>18 Nov 2026</div>
+          <h3><a href="post-1.html">Notes from a Very Cold Office</a></h3>
+          <p>Three coffees, one whiteboard, and a sinking feeling about a sign error on page four. A short, honest look at what a bad week of research feels like.</p>
+        </article>
+
+        <article class="post" data-cat="news">
+          <div class="meta"><span class="tag news">News</span>09 Nov 2026</div>
+          <h3><a href="post-1.html">Update: The Experiment Is Funded (Sort Of)</a></h3>
+          <p>Good news, bad news and a very small grant. Here is where the project stands, who is helping, and what happens next.</p>
+        </article>
+
+        <article class="post" data-cat="personal">
+          <div class="meta"><span class="tag">Personal</span>01 Nov 2026</div>
+          <h3><a href="post-1.html">Why I Started This Journal</a></h3>
+          <p>Every good argument deserves a paper trail. This is mine: part lab notebook, part diary, part loud complaint.</p>
+        </article>
+
+        <article class="post" data-cat="news">
+          <div class="meta"><span class="tag news">News</span>24 Oct 2026</div>
+          <h3><a href="post-1.html">A Reading List for the Sceptical</a></h3>
+          <p>The books and papers that shaped my doubts, shared for anyone who wants to check my working.</p>
+        </article>
+      </div>
+    </section>
+
+    <aside>
+      <div class="side-block" id="about">
+        <h4>About the author</h4>
+        <p>Dr G.Poonis writes about physics, doubt and the occasional bad morning in the lab. This journal collects news from the project alongside personal essays.</p>
+      </div>
+
+      <div class="side-block">
+        <h4>Categories</h4>
+        <ul>
+          <li><a href="#posts" data-jump="news">News</a> <span>02</span></li>
+          <li><a href="#posts" data-jump="personal">Personal</a> <span>02</span></li>
+        </ul>
+      </div>
+
+      <div class="side-block">
+        <h4>Currently</h4>
+        <p>Re-deriving everything from scratch. Reading far too many footnotes.</p>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      &copy; <span id="year"></span> Dr G.Poonis &middot; To Kill a Mocking Berg
+    </div>
+  </footer>
+
+  <script>
+    // Date + year
+    var now = new Date();
+    document.getElementById('today').textContent =
+      now.toLocaleDateString('en-AU', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+    document.getElementById('year').textContent = now.getFullYear();
+
+    // Category filter
+    var buttons = document.querySelectorAll('.filters button');
+    var posts = document.querySelectorAll('#postlist .post');
+
+    function applyFilter(cat) {
+      buttons.forEach(function (b) { b.classList.toggle('on', b.dataset.filter === cat); });
+      posts.forEach(function (p) { p.hidden = !(cat === 'all' || p.dataset.cat === cat); });
+    }
+
+    buttons.forEach(function (b) {
+      b.addEventListener('click', function () { applyFilter(b.dataset.filter); });
+    });
+
+    document.querySelectorAll('[data-jump]').forEach(function (a) {
+      a.addEventListener('click', function () { applyFilter(a.dataset.jump); });
+    });
+  </script>
+</body>
+</html>
