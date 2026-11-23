@@ -384,6 +384,20 @@ a:hover { color: var(--pink-soft); }
 .article ol { margin: 0 0 1.3em; padding-left: 24px; }
 .article li { margin-bottom: 8px; }
 
+.seq {
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.5;
+  background: #000;
+  color: var(--text);
+  border: 1px solid var(--brown-deep);
+  border-left: 4px solid var(--pink);
+  padding: 16px 20px;
+  margin: 24px 0;
+  overflow-x: auto;
+  white-space: pre;
+}
+
 .refs { list-style: none; padding-left: 0; font-size: 16px; }
 .ref-tag {
   display: inline-block;
